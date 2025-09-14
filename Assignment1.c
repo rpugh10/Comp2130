@@ -3,8 +3,12 @@
  * T00692297
  * Assignment 1
  * Due September 18th, 2025
- * This program will create multiple 1 dimensional arrays which hold the names of countries, years, the EV sales for one country
- * and will calculate the country total and yearly total for amount of EV sales.
+ * This program will create multiple 1 dimensional arrays which hold the names of countries, years, the EV sales for one country.
+ * I'll be using a for loop to iterate though the country sales and store the sums in a yearlyTotal array.
+ * Next using a switch statement I'll calculate the country totals.
+ * After that I'll calculate the sum of the country totals and store the result in the grandTotal array
+ * Lastly I'll print all the data out in a table format where the country names are left aligned and the years 
+ * are roughly centered over each column
  *
  */
 #include <stdio.h>
@@ -37,8 +41,7 @@
     int counter = 0;
     while( counter < 5 ){
 
-        //using a switch to iterate thought the EV sales for each country
-
+        //Using a switch to iterate thought the EV sales for each country
         switch(counter){
 
             case 0:
@@ -60,17 +63,85 @@
         counter++;
     }
 
+    //Calculating the sum of the country totals
     for(int i = 0; i < COUNTRIES; i++){
         grandTotal[0] += countryTotals[i];
     }
 
+    //Printing out title
+    printf(" %55s\n\n", "NEW EV CAR SALES");
+
+    //Printing out the years. Added spaces before "Country" to center it over the countries
+    printf("%-20s", "     Country");
     for(int i = 0; i < YEARS; i++){
-        printf("Year %d: %d\n", years[i], yearlyTotals[i]);
+        printf("%10d ", years[i]);
     }
 
-    for(int i = 0; i < COUNTRIES; i++){
-        printf("Country: %s Total EV Sales: %d\n", countries[i], countryTotals[i]);
+    //Printing out the word total after the years and moving to a new line
+    printf("%11s\n", "Total");
+
+    
+    //Printing out the country at index 0 followed by the data for the country
+    printf("%-20s", countries[0]);
+    for(int i = 0; i < YEARS; i++){
+        printf("%11d", chinaSales[i]);
     }
 
-    printf("%d\n", grandTotal[0]);
+    //Printing out the total for China. added a space before the %11d to move the total a little bit more to the right
+    printf(" %11d", countryTotals[0]);
+
+    printf("\n");
+
+    //Printing out the country at index 1 followed by the data for the country
+    printf("%-20s", countries[1]);
+     for(int i = 0; i < YEARS; i++){
+        printf("%11d", usSales[i]);
+    }
+
+    //Printing out the total for the US, also added a space to move the Us total to the right
+    printf(" %11d", countryTotals[1]);
+
+    printf("\n");
+
+    //Printing out the country at index 2 followed by the data for the country
+    printf("%-20s", countries[2]);
+    for(int i = 0; i < YEARS; i++){
+        printf("%11d", germanSales[i]);
+    }
+
+    //Printing out the total for Germany, adding a space for the same reasons as the total for China and the US.
+    printf(" %11d", countryTotals[2]);
+
+    printf("\n");
+
+    //Printing out the country at index 3, followed by the data for the country
+    printf("%-20s", countries[3]);
+    for(int i = 0; i < YEARS; i++){
+        printf("%11d", ukSales[i]);
+    }
+
+    //Printing out the total for the UK, adding a space here too 
+    printf(" %11d", countryTotals[3]);
+
+    printf("\n");
+
+    //Printing out the country at index 4, followed by the data for that country
+    printf("%-20s", countries[4]);
+    for(int i = 0; i < YEARS; i++){
+        printf("%11d", franceSales[i]);
+    }
+    
+    //Printing out the total for France, also has a space in front of %11d
+    printf(" %11d", countryTotals[4]);
+    printf("\n");
+
+    //Printing out the yearly totals for each country
+    printf("%-20s", "Total");
+    for(int i = 0; i < YEARS; i++){
+        printf("%11d", yearlyTotals[i]);
+    }
+
+    //Printing out the grand total which is all sum of all the total country sales, also has a space in front of %11d
+    printf(" %11d\n", grandTotal[0]);
+
 }
