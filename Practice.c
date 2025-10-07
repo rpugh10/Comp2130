@@ -20,3 +20,24 @@ void averageAndTotal(int marks[], int *average, int *total){
 
   *average = *average / 3;
 }
+
+#include <stdio.h>
+
+//New function 
+
+void tempConverter(double cel, double *p1, double *p2);
+
+int main(void){
+  double celsius = 20.0;
+  double kelvin = 0;
+  double fahrenheit = 0;
+
+  tempConverter(celsius, &fahrenheit, &kelvin);
+
+  printf("20 celsius to fahrenheit is %10.2f and to kelvin is %-10.2f", fahrenheit, kelvin);
+}
+
+void tempConverter(double cel, double *fah, double *kel){
+  *fah = (cel * 1.8) + 32;
+  *kel = cel + 273.15;
+}
