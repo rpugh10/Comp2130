@@ -63,3 +63,19 @@ void sum(int *nums, int *total){
     *total += *(nums + i);
   }
 }
+
+#include <stdio.h>
+
+void printMessage(char *name);
+
+int main(void){
+
+  char *name= "Ryan";
+
+  printMessage(name);
+
+}
+
+void printMessage(char *name){
+  printf("Hello %s", name);
+}
