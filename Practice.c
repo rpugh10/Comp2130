@@ -41,3 +41,25 @@ void tempConverter(double cel, double *fah, double *kel){
   *fah = (cel * 1.8) + 32;
   *kel = cel + 273.15;
 }
+
+#include <stdio.h>
+
+void sum(int *nums, int *total);
+
+#define SIZE 5
+
+int main(void){
+  int nums[SIZE] = {1,2,3,4,5};
+
+  int total = 0;
+
+  sum(nums, &total);
+
+  printf("The sum of the nums array is %d", total);
+}
+
+void sum(int *nums, int *total){
+  for(int i = 0; i < SIZE; i++){
+    *total += *(nums + i);
+  }
+}
